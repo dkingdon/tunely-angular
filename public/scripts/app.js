@@ -23,7 +23,7 @@ function AlbumsIndexController ( $http ) {
 
   vm.albums = [];
 
-  // Get Data
+  // Shows album data from db on page
   $http({
     method: 'GET',
     url: '/api/albums'
@@ -32,5 +32,18 @@ function AlbumsIndexController ( $http ) {
   }, function (err) {
     console.log('GET failed', err);
   })
+
+  // Adds new albums via form on page
+  vm.createAlbum = function () {
+    $http({
+      method: 'POST',
+      url: '/api/albums',
+      data: vm.newAlbum,
+    }).then(function newAlbumCreateSuccess(res){
+      vm.albums.push(res.data);
+    }, function newAlbumErro(err) {
+      console.log('error posting', err);
+    });
+  }
 
 } //END OF CONTROLLER
