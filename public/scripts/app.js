@@ -37,4 +37,16 @@ angular
       });
     }
 
+    vm.deleteAlbum = function (album) {
+      $http({
+        method: "DELETE",
+        url: '/api/albums/' + album._id,
+      }).then(function deleteSuccess (deletedAlbum) {
+        var index = vm.albums.indexOf(album);
+        vm.albums.splice(index, 1);
+      }, function deleteError (err) {
+        console.log('error deleting album', err);
+      });
+    }
+
   } // END OF CONTROLLER
