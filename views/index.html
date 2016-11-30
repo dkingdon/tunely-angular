@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="/styles/styles.css">
 
     <!-- VENDOR SCRIPTS -->
-    <script src="/vendor/angular/angular.min.js"></script>
-    <script src="/vendor/angular-route/angular-route.min.js"></script>
+    <script src="/vendor/angular/angular.js"></script>
+    <script src="/vendor/angular-route/angular-route.js"></script>
 
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/app.js"></script>
@@ -108,7 +108,18 @@
                       <h4 class="inline-header">Artist Name:</h4>
                       <span>{{album.artistName}}</span>
                     </li>
+
+                    <li class="list-group-item">
+                      <h4 class="inline-header">Release Date:</h4>
+                      <span>{{album.releaseDate}}</span>
+                    </li>
+
+                    <!-- <li class="list-group-item">
+                      <h4 class="inline-header">Genres:</h4>
+                      <span>{{album.genres}}</span>
+                    </li> -->
                   </ul>
+                  <button class="btn btn-danger" ng-click="albumsIndexCtrl.deleteAlbum(album)">Delete Album</button>
                 </div>
               </div>
             </div>
